@@ -1,0 +1,45 @@
+﻿@model IEnumerable<School.classrooms>
+
+@{
+    ViewBag.Title = "Классы";
+}
+
+<h2>Классы</h2>
+
+<p>
+    @Html.ActionLink("Добавить класс", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Название")
+        </th>
+        <th>
+            @Html.DisplayName("Учебный год")
+        </th>
+        <th>
+            @Html.DisplayName("Классный руководитель")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.y_year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher.fio)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Подробнее", "Details", new { id = item.id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

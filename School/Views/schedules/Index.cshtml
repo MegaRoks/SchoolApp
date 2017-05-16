@@ -1,0 +1,51 @@
+﻿@model IEnumerable<School.schedule>
+
+@{
+    ViewBag.Title = "Расписание";
+}
+
+<h2>Расписание</h2>
+
+<p>
+    @Html.ActionLink("Добавить расписание", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Предмет")
+        </th>
+        <th>
+            @Html.DisplayName("Учитель")
+        </th>
+        <th>
+            @Html.DisplayName("Время")
+        </th>
+        <th>
+            @Html.DisplayName("Кабинет")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cabinet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subject.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher.fio)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Подробнее", "Details", new { id = item.id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

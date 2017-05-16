@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище schoolModelContainer" CdmEntityContainer="schoolEntities">
+    <EntitySetMapping Name="classrooms">
+      <EntityTypeMapping TypeName="schoolModel.classrooms">
+        <MappingFragment StoreEntitySet="classrooms">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="y_year" ColumnName="y_year" />
+          <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="disciple">
+      <EntityTypeMapping TypeName="schoolModel.disciple">
+        <MappingFragment StoreEntitySet="disciple">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="id_class" ColumnName="id_class" />
+          <ScalarProperty Name="p_year" ColumnName="p_year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schedule">
+      <EntityTypeMapping TypeName="schoolModel.schedule">
+        <MappingFragment StoreEntitySet="schedule">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_subject" ColumnName="id_subject" />
+          <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+          <ScalarProperty Name="cabinet" ColumnName="cabinet" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subject">
+      <EntityTypeMapping TypeName="schoolModel.subject">
+        <MappingFragment StoreEntitySet="subject">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="year" ColumnName="year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher">
+      <EntityTypeMapping TypeName="schoolModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="specialism" ColumnName="specialism" />
+          <ScalarProperty Name="r_date" ColumnName="r_date" />
+          <ScalarProperty Name="v_date" ColumnName="v_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

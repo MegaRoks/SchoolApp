@@ -1,0 +1,42 @@
+﻿@model School.disciple
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>disciple</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.classrooms.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.classrooms.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
