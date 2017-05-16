@@ -1,17 +1,17 @@
 ﻿@model School.teacher
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Подробно";
 }
 
-<h2>Details</h2>
+<h2>Подробно</h2>
 
 <div>
-    <h4>teacher</h4>
+    <h4>Учителя</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.fio)
+            @Html.DisplayName("ФИО")
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.specialism)
+            @Html.DisplayName("Специализация")
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.r_date)
+            @Html.DisplayName("Дата рождения")
         </dt>
 
         <dd>
@@ -35,16 +35,14 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.v_date)
+            @Html.DisplayName("Дата выхода на работу")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.v_date)
         </dd>
-
-    </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Изменение", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Назад", "Index")
 </p>
