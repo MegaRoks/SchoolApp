@@ -6,6 +6,20 @@
 
 <h2>Учителя</h2>
 
+@using (Html.BeginForm("Search", "teachers"))
+{
+    <div class="form-group">
+        <div class="col-md-12" style="padding-left: 0">
+            <input type="text" name="searchText" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12" style="padding-left: 0">
+            <input type="submit" value="Поиск" class="btn btn-default" />
+        </div>
+    </div>
+}
+
 <p>
     @Html.ActionLink("Добивить учителя", "Create")
 </p>

@@ -10,6 +10,7 @@ using School;
 
 namespace School.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class classroomsController : Controller
     {
         private schoolEntities db = new schoolEntities();
@@ -19,6 +20,16 @@ namespace School.Controllers
         {
             var classrooms = db.classrooms.Include(c => c.teacher);
             return View(classrooms.ToList());
+        }
+
+        public ActionResult Search(String searchText)
+        {
+            var result = db.classrooms
+                .Where(a => a.name.ToLower().Contains(searchText.ToLower()) 
+                    || a.y_year.ToString().Contains(searchText.ToLower()) 
+                    || a.teacher.fio.ToLower().Contains(searchText.ToLower()))
+                .ToArray();
+            return View(result);
         }
 
         // GET: classrooms/Details/5

@@ -21,6 +21,17 @@ namespace School.Controllers
             return View(schedule.ToList());
         }
 
+        public ActionResult Search(String searchText)
+        {
+            var result = db.schedule
+                .Where(a => a.cabinet.ToString().Contains(searchText.ToLower())
+                    || a.time.ToString().Contains(searchText.ToLower())
+                    || a.subject.name.ToLower().Contains(searchText.ToLower())
+                    || a.teacher.fio.ToLower().Contains(searchText.ToLower()))
+                .ToArray();
+            return View(result);
+        }
+
         // GET: schedules/Details/5
         public ActionResult Details(int? id)
         {

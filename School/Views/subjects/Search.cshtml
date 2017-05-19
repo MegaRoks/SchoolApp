@@ -1,0 +1,40 @@
+﻿@model IEnumerable<School.subject>
+
+@{
+    ViewBag.Title = "Поиск";
+}
+
+<h2>Результаты поиска</h2>
+
+<p>
+    @Html.ActionLink("Добавить предмет", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Название")
+        </th>
+        <th>
+            @Html.DisplayName("Год обучения")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Подробнее", "Details", new { id = item.id }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

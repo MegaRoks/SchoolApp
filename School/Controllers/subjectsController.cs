@@ -20,8 +20,17 @@ namespace School.Controllers
             return View(db.subject.ToList());
         }
 
-        // GET: subjects/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Search(String searchText)
+        {
+            var result = db.subject
+                .Where(a => a.name.ToLower().Contains(searchText.ToLower())
+                    || a.year.ToString().Contains(searchText.ToLower()))
+                .ToArray();
+            return View(result);
+        }
+
+            // GET: subjects/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {

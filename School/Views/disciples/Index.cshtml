@@ -6,6 +6,20 @@
 
 <h2>Ученики</h2>
 
+@using (Html.BeginForm("Search", "disciples"))
+{
+    <div class="form-group">
+        <div class="col-md-12" style="padding-left: 0">
+            <input type="text" name="searchText" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12" style="padding-left: 0">
+            <input type="submit" value="Поиск" class="btn btn-default" />
+        </div>
+    </div>
+}
+
 <p>
     @Html.ActionLink("Добавить ученика", "Create")
 </p>
@@ -29,10 +43,10 @@
             @Html.DisplayFor(modelItem => item.fio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.p_year)
+            @Html.DisplayFor(modelItem => item.id_class)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.classrooms.name)
+            @Html.DisplayFor(modelItem => item.p_year)
         </td>
         <td>
             @Html.ActionLink("Изменить", "Edit", new { id = item.id }) |

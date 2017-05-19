@@ -7,6 +7,7 @@
     <title>@ViewBag.Title – приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -28,6 +29,7 @@
                     <li>@Html.ActionLink("Расписание", "Index", "schedules")</li>
                     <li>@Html.ActionLink("Ученики", "Index", "disciples")</li>
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>

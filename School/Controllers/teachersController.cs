@@ -20,6 +20,17 @@ namespace School.Controllers
             return View(db.teacher.ToList());
         }
 
+        public ActionResult Search(String searchText)
+        {
+            var result = db.teacher
+                .Where(a => a.fio.ToLower().Contains(searchText.ToLower())
+                    || a.specialism.ToLower().Contains(searchText.ToLower())
+                    || a.r_date.ToString().Contains(searchText.ToLower())
+                    || a.v_date.ToString().Contains(searchText.ToLower()))
+                .ToArray();
+            return View(result);
+        }
+
         // GET: teachers/Details/5
         public ActionResult Details(int? id)
         {

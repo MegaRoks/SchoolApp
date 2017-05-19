@@ -1,0 +1,52 @@
+﻿@model IEnumerable<School.teacher>
+
+@{
+    ViewBag.Title = "Поиск";
+}
+
+<h2>Результаты поиска</h2>
+
+<p>
+    @Html.ActionLink("Добивить учителя", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("ФИО")
+        </th>
+        <th>
+            @Html.DisplayName("Специализация")
+        </th>
+        <th>
+            @Html.DisplayName("Дата рождения")
+        </th>
+        <th>
+            @Html.DisplayName("Дата выхода на работу")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialism)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.r_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.v_date)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Подробнее", "Details", new { id = item.id }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

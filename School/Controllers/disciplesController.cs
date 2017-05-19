@@ -21,6 +21,16 @@ namespace School.Controllers
             return View(disciple.ToList());
         }
 
+        public ActionResult Search(String searchText)
+        {
+            var result = db.disciple
+                .Where(a => a.fio.ToLower().Contains(searchText.ToLower())
+                    || a.p_year.ToString().Contains(searchText.ToLower())
+                    || a.classrooms.name.ToLower().Contains(searchText.ToLower()))
+                .ToArray();
+            return View(result);
+        }
+
         // GET: disciples/Details/5
         public ActionResult Details(int? id)
         {
