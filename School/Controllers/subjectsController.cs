@@ -14,12 +14,14 @@ namespace School.Controllers
     {
         private schoolEntities db = new schoolEntities();
 
+        [Authorize(Roles = "user")]
         // GET: subjects
         public ActionResult Index()
         {
             return View(db.subject.ToList());
         }
 
+        [Authorize(Roles = "user")]
         public ActionResult Search(String searchText)
         {
             var result = db.subject
@@ -29,8 +31,9 @@ namespace School.Controllers
             return View(result);
         }
 
-            // GET: subjects/Details/5
-            public ActionResult Details(int? id)
+        [Authorize(Roles = "admin")]
+        // GET: subjects/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -44,12 +47,14 @@ namespace School.Controllers
             return View(subject);
         }
 
+        [Authorize(Roles = "admin")]
         // GET: subjects/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "admin")]
         // POST: subjects/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -67,6 +72,7 @@ namespace School.Controllers
             return View(subject);
         }
 
+        [Authorize(Roles = "admin")]
         // GET: subjects/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -82,6 +88,7 @@ namespace School.Controllers
             return View(subject);
         }
 
+        [Authorize(Roles = "admin")]
         // POST: subjects/Edit/5
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -98,6 +105,7 @@ namespace School.Controllers
             return View(subject);
         }
 
+        [Authorize(Roles = "admin")]
         // GET: subjects/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -113,6 +121,7 @@ namespace School.Controllers
             return View(subject);
         }
 
+        [Authorize(Roles = "admin")]
         // POST: subjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -124,6 +133,7 @@ namespace School.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "admin")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)

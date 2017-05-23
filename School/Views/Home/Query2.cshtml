@@ -1,0 +1,59 @@
+﻿@model IEnumerable<School.classrooms>
+
+@{
+    ViewBag.Title = "Рапрос";
+}
+
+<h2>Результаты запроса</h2>
+
+<p>
+    @if (HttpContext.Current.User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Добавить", "Create")
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Название")
+        </th>
+        <th>
+            @Html.DisplayName("Учебный год")
+        </th>
+        <th>
+            @Html.DisplayName("Классный руководитель")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher.fio)
+            </td>
+            <td>
+                @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                    <span> @Html.ActionLink("Изменить", "Edit", new { id = item.id })</span>
+                    <span> @Html.ActionLink("Подробнее", "Details", new { id = item.id }) </span>
+                    <span> @Html.ActionLink("Удалить", "Delete", new { id = item.id })</span>
+                }
+
+                @using (Html.BeginForm("Search", "teachers"))
+                {
+                    <input type="hidden" name="searchText" value="@Html.DisplayName(item.teacher.fio)">
+                    <input type="submit" value="Учителя" class="btn-link" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+

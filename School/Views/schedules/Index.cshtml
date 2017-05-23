@@ -21,7 +21,10 @@
 }
 
 <p>
-    @Html.ActionLink("Добавить расписание", "Create")
+    @if (HttpContext.Current.User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Добавить", "Create")
+    }
 </p>
 <table class="table">
     <tr>
@@ -40,26 +43,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.subject.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.teacher.fio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cabinet)
-        </td>
-        <td>
-            @Html.ActionLink("Изменить", "Edit", new { id = item.id }) |
-            @Html.ActionLink("Подробнее", "Details", new { id = item.id }) |
-            @Html.ActionLink("Удалить", "Delete", new { id = item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.subject.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher.fio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cabinet)
+            </td>
+            <td>
+                @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                    <span> @Html.ActionLink("Изменить", "Edit", new { id = item.id })</span>
+                    <span> @Html.ActionLink("Подробнее", "Details", new { id = item.id }) </span>
+                    <span> @Html.ActionLink("Удалить", "Delete", new { id = item.id })</span>
+                }
+            </td>
+        </tr>
+    }
 
 </table>

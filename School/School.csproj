@@ -249,6 +249,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-School-20170519051052.mdf" />
+    <Content Include="App_Data\aspnet-School-20170519051052_log.ldf">
+      <DependentUpon>aspnet-School-20170519051052.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -345,10 +349,18 @@
     <Content Include="Views\teachers\Details.cshtml" />
     <Content Include="Views\teachers\Edit.cshtml" />
     <Content Include="Views\teachers\Index.cshtml" />
+    <Content Include="Views\classrooms\Search.cshtml" />
+    <Content Include="Views\disciples\Search.cshtml" />
+    <Content Include="Views\schedules\Search.cshtml" />
+    <Content Include="Views\subjects\Search.cshtml" />
+    <Content Include="Views\teachers\Search.cshtml" />
+    <Content Include="Views\Home\Query1.cshtml" />
+    <Content Include="Views\Home\Query2.cshtml" />
+    <Content Include="Views\Home\Query3.cshtml" />
+    <Content Include="Views\Home\Query4.cshtml" />
+    <Content Include="Views\Home\Query5.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

@@ -7,7 +7,10 @@
 <h2>Результаты поиска</h2>
 
 <p>
-    @Html.ActionLink("Добавить предмет", "Create")
+    @if (HttpContext.Current.User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Добавить", "Create")
+    }
 </p>
 <table class="table">
     <tr>
@@ -30,9 +33,18 @@
                 @Html.DisplayFor(modelItem => item.year)
             </td>
             <td>
-                @Html.ActionLink("Изменить", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Подробнее", "Details", new { id = item.id }) |
-                @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+                @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                    <span> @Html.ActionLink("Изменить", "Edit", new { id = item.id })</span>
+                    <span> @Html.ActionLink("Подробнее", "Details", new { id = item.id }) </span>
+                    <span> @Html.ActionLink("Удалить", "Delete", new { id = item.id })</span>
+                }
+
+                @*@using (Html.BeginForm("Search", "classrooms"))
+                {
+                    <input type="hidden" name="searchText" value="@Html.DisplayName(item.subject.name)">
+                    <input type="submit" value="Предметы" class="btn-link" />
+                }*@
             </td>
         </tr>
     }

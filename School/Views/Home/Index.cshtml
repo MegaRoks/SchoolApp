@@ -1,31 +1,64 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <h1>ГЛАВНАЯ СТРАНИЦА</h1>
+    <ul>
+        @using (Html.BeginForm("Query1", "Home"))
+        {
+            <li>
+                Выбрать учителей у коротых период работы
+                с <input type="text" name="queryText1" style="height: 30px; width: 100px" />
+                по <input type="text" name="queryText2" style="height: 30px; width: 100px" />
+                <input type="submit" value="Выполнить" class="btn btn-default" />
+            </li>
+        }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+        @using (Html.BeginForm("Query2", "Home"))
+        {
+            <li>
+                Выбрать класс по учителю
+                <select name="queryText">
+                    @foreach (var item in ViewBag.teacherList)
+                    {
+                        <option value="@item.Text">@item.Text</option>
+                    }
+                </select>
+                <input type="submit" value="Выполнить" class="btn btn-default" />
+            </li>
+        }
+        @using (Html.BeginForm("Query3", "Home"))
+        {
+            <li>
+                Выбрать учителей по предмету
+                <select name="queryText">
+                    @foreach (var item in ViewBag.subjectList)
+                    {
+                        <option value="@item.Text">@item.Text</option>
+                    }
+                </select>
+                <input type="submit" value="Выполнить" class="btn btn-default" />
+            </li>
+        }
+
+        @using (Html.BeginForm("Query5", "Home"))
+        {
+            <li>
+                Поиск по ученикам
+                <input type="text" name="queryText1" style="height: 30px; width: 100px" />
+                <input type="submit" value="Выполнить" class="btn btn-default" />
+            </li>
+        }
+
+        @using (Html.BeginForm("Query4", "Home"))
+        {
+            <li>
+                Поиск предмета
+                <input type="text" name="queryText1" style="height: 30px; width: 100px" />
+                <input type="submit" value="Выполнить" class="btn btn-default" />
+            </li>
+        }
+    </ul>
 </div>
