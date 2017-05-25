@@ -1,17 +1,11 @@
 ﻿@model IEnumerable<School.disciple>
 
 @{
-    ViewBag.Title = "Поиск";
+    ViewBag.Title = "Query6";
 }
 
-<h2>Результаты поиска</h2>
+<h2>Результаты запроса</h2>
 
-<p>
-    @if (HttpContext.Current.User.IsInRole("admin"))
-    {
-        @Html.ActionLink("Добавить", "Create")
-    }
-</p>
 <table class="table">
     <tr>
         <th>
@@ -48,3 +42,4 @@
         </tr>
     }
 </table>
+

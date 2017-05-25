@@ -50,7 +50,6 @@
                 @if (HttpContext.Current.User.IsInRole("admin"))
                 {
                     <span> @Html.ActionLink("Изменить", "Edit", new { id = item.id })</span>
-                    <span> @Html.ActionLink("Подробнее", "Details", new { id = item.id }) </span>
                     <span> @Html.ActionLink("Удалить", "Delete", new { id = item.id })</span>
                 }
             </td>

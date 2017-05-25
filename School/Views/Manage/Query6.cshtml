@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<School.schedule>
 
 @{
-    ViewBag.Title = "Поиск";
+    ViewBag.Title = "Запрос";
 }
 
 <h2>Результаты поиска</h2>
@@ -33,7 +33,7 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item?.subject.name.ToString(), "index", "subjects", new { id = item.subject.id }, null)
+                @Html.ActionLink(item?.subject.name.ToString(), "index", "subjects", new { id = item.subject.name }, null)
             </td>
             <td>
                 @Html.ActionLink(item?.teacher.fio.ToString(), "index", "teachers", new { id = item.teacher.id }, null)
@@ -47,8 +47,8 @@
             <td>
                 @if (HttpContext.Current.User.IsInRole("admin"))
                 {
-                    <span> @Html.ActionLink("Изменить", "Edit", new { id = item.id })</span>
-                    <span> @Html.ActionLink("Удалить", "Delete", new { id = item.id })</span>
+                    <span> @Html.ActionLink("Изменить", "Edit", "schedules", new { id = item.id }, null)</span>
+                    <span> @Html.ActionLink("Удалить", "Delete", "schedules", new { id = item.id }, null)</span>
                 }
             </td>
         </tr>

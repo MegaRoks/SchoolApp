@@ -326,27 +326,22 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\classrooms\Create.cshtml" />
     <Content Include="Views\classrooms\Delete.cshtml" />
-    <Content Include="Views\classrooms\Details.cshtml" />
     <Content Include="Views\classrooms\Edit.cshtml" />
     <Content Include="Views\classrooms\Index.cshtml" />
     <Content Include="Views\disciples\Create.cshtml" />
     <Content Include="Views\disciples\Delete.cshtml" />
-    <Content Include="Views\disciples\Details.cshtml" />
     <Content Include="Views\disciples\Edit.cshtml" />
     <Content Include="Views\disciples\Index.cshtml" />
     <Content Include="Views\schedules\Create.cshtml" />
     <Content Include="Views\schedules\Delete.cshtml" />
-    <Content Include="Views\schedules\Details.cshtml" />
     <Content Include="Views\schedules\Edit.cshtml" />
     <Content Include="Views\schedules\Index.cshtml" />
     <Content Include="Views\subjects\Create.cshtml" />
     <Content Include="Views\subjects\Delete.cshtml" />
-    <Content Include="Views\subjects\Details.cshtml" />
     <Content Include="Views\subjects\Edit.cshtml" />
     <Content Include="Views\subjects\Index.cshtml" />
     <Content Include="Views\teachers\Create.cshtml" />
     <Content Include="Views\teachers\Delete.cshtml" />
-    <Content Include="Views\teachers\Details.cshtml" />
     <Content Include="Views\teachers\Edit.cshtml" />
     <Content Include="Views\teachers\Index.cshtml" />
     <Content Include="Views\classrooms\Search.cshtml" />
@@ -359,6 +354,8 @@
     <Content Include="Views\Home\Query3.cshtml" />
     <Content Include="Views\Home\Query4.cshtml" />
     <Content Include="Views\Home\Query5.cshtml" />
+    <Content Include="Views\Manage\Query6.cshtml" />
+    <Content Include="Views\Home\Query6.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

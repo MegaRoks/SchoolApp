@@ -68,5 +68,14 @@ namespace School.Controllers
                 .ToArray();
             return View(result.ToArray());
         }
+
+        public ActionResult Query6(string queryText1)
+        {
+            var result = db.disciple
+                .Include(c => c.classrooms)
+                .Where(c => c.id_class.ToString().ToLower().Contains(queryText1.ToLower()))
+                .ToArray();
+            return View(result.ToArray());
+        }
     }
 }

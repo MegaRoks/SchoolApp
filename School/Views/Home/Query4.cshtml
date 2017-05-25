@@ -33,10 +33,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.subject.name)
+                @Html.ActionLink(item?.subject.name.ToString(), "index", "subjects", new { id = item.subject.id }, null)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.teacher.fio)
+                @Html.ActionLink(item?.teacher.fio.ToString(), "index", "teachers", new { id = item.teacher.id }, null)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.time)
@@ -47,25 +47,11 @@
             <td>
                 @if (HttpContext.Current.User.IsInRole("admin"))
                 {
-                    <span> @Html.ActionLink("Изменить", "Edit", new { id = item.id })</span>
-                    <span> @Html.ActionLink("Подробнее", "Details", new { id = item.id }) </span>
-                    <span> @Html.ActionLink("Удалить", "Delete", new { id = item.id })</span>
-                }
-
-                @using (Html.BeginForm("Search", "classrooms"))
-                {
-                    <input type="hidden" name="searchText" value="@Html.DisplayName(item.teacher.fio)">
-                    <input type="submit" value="Учителя" class="btn-link" />
-                }
-
-                @using (Html.BeginForm("Search", "subjects"))
-                {
-                    <input type="hidden" name="searchText" value="@Html.DisplayName(item.subject.name)">
-                    <input type="submit" value="Предметы" class="btn-link" />
+                    <span> @Html.ActionLink("Изменить", "Edit", "schedules", new { id = item.id }, null)</span>
+                    <span> @Html.ActionLink("Удалить", "Delete", "schedules", new { id = item.id }, null)</span>
                 }
             </td>
         </tr>
     }
-
 </table>
 

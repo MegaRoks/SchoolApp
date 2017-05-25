@@ -60,5 +60,14 @@
                 <input type="submit" value="Выполнить" class="btn btn-default" />
             </li>
         }
+
+        @using (Html.BeginForm("Query6", "Home"))
+        {
+            <li>
+                Поиск по классу
+                <input type="text" name="queryText1" style="height: 30px; width: 100px" />
+                <input type="submit" value="Выполнить" class="btn btn-default" />
+            </li>
+        }
     </ul>
 </div>

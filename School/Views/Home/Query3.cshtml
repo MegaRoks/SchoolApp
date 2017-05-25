@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => item.fio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.specialism)
+                @Html.ActionLink(item?.specialism.ToString(), "index", "schedules", new { id = item.specialism }, null)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.r_date)
@@ -41,15 +41,8 @@
             <td>
                 @if (HttpContext.Current.User.IsInRole("admin"))
                 {
-                    <span> @Html.ActionLink("Изменить", "Edit", new { id = item.id })</span>
-                    <span> @Html.ActionLink("Подробнее", "Details", new { id = item.id }) </span>
-                    <span> @Html.ActionLink("Удалить", "Delete", new { id = item.id })</span>
-                }
-
-                @using (Html.BeginForm("Search", "clients"))
-                {
-                    <input type="hidden" name="searchText" value="@Html.DisplayName(item.classrooms.)">
-                    <input type="submit" value="Классы" class="btn-link" />
+                    <span> @Html.ActionLink("Изменить", "Edit", "teachers", new { id = item.id }, null)</span>
+                    <span> @Html.ActionLink("Удалить", "Delete", "teachers", new { id = item.id }, null)</span>
                 }
             </td>
         </tr>
